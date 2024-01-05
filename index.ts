@@ -1,3 +1,4 @@
+
 /* Here the parameters are defined as type: number. Trying to run the function without the correct parameter type will cause an error. */
 const numberSummer = (num1: number, num2: number) => {
   return num1 + num2;
@@ -139,7 +140,16 @@ const stringOrNumber = (input: string | number) => {
   }
 };
 
-console.log(stringOrNumber("Banana"))
-console.log(stringOrNumber(42))
+console.log(stringOrNumber("Banana"));
+console.log(stringOrNumber(42));
 
+const makeElements = (type: string, properties) => {
+  const element = document.createElement(type);
+  Object.entries(properties).forEach((property) => {
+    let [propertyName, propertyValue] = property;
+    element[propertyName] = propertyValue;
+  });
+  return element;
+};
 
+console.log(makeElements("div", { className: "main" }));

@@ -81,6 +81,7 @@ var makeDirectionMessage = function (guideNumber) {
     }
 };
 console.log(makeDirectionMessage(1));
+/* You can define more than one datatype, this is called union types. This allows for different cases depending on datatype. */
 var stringOrNumber = function (input) {
     if (typeof input === "string") {
         return "Hello, ".concat(input);
@@ -91,3 +92,12 @@ var stringOrNumber = function (input) {
 };
 console.log(stringOrNumber("Banana"));
 console.log(stringOrNumber(42));
+var makeElements = function (type, properties) {
+    var element = document.createElement(type);
+    Object.entries(properties).forEach(function (property) {
+        var propertyName = property[0], propertyValue = property[1];
+        element[propertyName] = propertyValue;
+    });
+    return element;
+};
+console.log(makeElements("div", { className: "main" }));
